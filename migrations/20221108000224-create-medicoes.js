@@ -1,6 +1,9 @@
 'use strict';
+
 /** @type {import('sequelize-cli').Migration} */
+
 module.exports = {
+
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Medicoes', {
       id: {
@@ -9,11 +12,16 @@ module.exports = {
         primaryKey: true,
         type: Sequelize.INTEGER
       },
+      id_medidor:{
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'Medidores', key: 'id'}
+      },
       data_medicoes: {
         type: Sequelize.DATEONLY
       },
       valor_medicoes: {
-        type: Sequelize.FLOAT
+        type: Sequelize.INTEGER
       },
       createdAt: {
         allowNull: false,
@@ -25,7 +33,9 @@ module.exports = {
       }
     });
   },
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Medicoes');
   }
+  
 };

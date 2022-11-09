@@ -2,6 +2,7 @@
 const {
   Model
 } = require('sequelize');
+const estados = require('./estados');
 module.exports = (sequelize, DataTypes) => {
   class Cidades extends Model {
     /**
@@ -10,13 +11,19 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Cidades.hasMany(models.Estados, {
+        foreignKey: 'id_estado'
+      })
+      Cidades.belongsTo(models.Clientes, {
+        foreignKey: 'cidade_cliente'
+      })
     }
   }
   Cidades.init({
     nome_cidade: DataTypes.STRING
   }, {
     sequelize,
+    paranoid: true,
     modelName: 'Cidades',
   });
   return Cidades;

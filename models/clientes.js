@@ -10,7 +10,18 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Clientes.hasMany(models.Cidades, {
+        foreignKey: 'cidade_cliente'
+      })
+      Clientes.hasMany(models.Estados, {
+        foreignKey: 'estado_cliente'
+      })
+      Clientes.belongsTo(models.Consumos, {
+        foreignKey: 'id_cliente'
+      })
+      Clientes.belongsTo(models.Medidores, {
+        foreignKey: 'id_cliente'
+      })
     }
   }
   Clientes.init({
@@ -19,6 +30,7 @@ module.exports = (sequelize, DataTypes) => {
     status_cliente: DataTypes.STRING
   }, {
     sequelize,
+    paranoid: true,
     modelName: 'Clientes',
   });
   return Clientes;

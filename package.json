@@ -12,7 +12,7 @@
   "name": "projeto-aplicado-1-ods",
   "description": "Ideia do Projeto: Monitorar o consumo de água para promover isenções fiscais em residências/industrias quando baterem uma meta estipulada por entes governamentais. A partir do monitoramento conseguimos tomar várias ações quanto ao consumo, desde avisos ao cliente até o bloqueio automático da água em casos de rompimento.",
   "version": "1.0.0",
-  "main": "index.js",
+  "main": "server.js",
   "scripts": {
     "start": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1"

@@ -1,6 +1,9 @@
 'use strict';
+
 /** @type {import('sequelize-cli').Migration} */
+
 module.exports = {
+
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Cidades', {
       id: {
@@ -12,6 +15,11 @@ module.exports = {
       nome_cidade: {
         type: Sequelize.STRING
       },
+      id_estado:{
+        allowNull: false,
+        type: Sequelize.INTEGER,
+        references: { model: 'Estados', key: 'id'}
+      },
       createdAt: {
         allowNull: false,
         type: Sequelize.DATE
@@ -22,7 +30,9 @@ module.exports = {
       }
     });
   },
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Cidades');
   }
+  
 };

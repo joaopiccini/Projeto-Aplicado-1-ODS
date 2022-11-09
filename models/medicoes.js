@@ -10,7 +10,9 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Medicoes.hasMany(models.Medidores, {
+        foreignKey: 'id_medidor'
+      })
     }
   }
   Medicoes.init({
@@ -18,6 +20,7 @@ module.exports = (sequelize, DataTypes) => {
     valor_medicoes: DataTypes.FLOAT
   }, {
     sequelize,
+    paranoid: true,
     modelName: 'Medicoes',
   });
   return Medicoes;

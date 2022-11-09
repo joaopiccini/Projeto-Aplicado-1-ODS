@@ -10,7 +10,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Medidores.hasMany(models.Clientes, {
+        foreignKey: 'id_cliente'
+      })
+      Medidores.belongsTo(models.Medicoes, {
+        foreignKey: 'id_medidor'
+      }) 
     }
   }
   Medidores.init({
@@ -19,6 +24,7 @@ module.exports = (sequelize, DataTypes) => {
     status_medidor: DataTypes.STRING
   }, {
     sequelize,
+    paranoid: true,
     modelName: 'Medidores',
   });
   return Medidores;

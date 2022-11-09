@@ -1,6 +1,9 @@
 'use strict';
+
 /** @type {import('sequelize-cli').Migration} */
+
 module.exports = {
+
   async up(queryInterface, Sequelize) {
     await queryInterface.createTable('Medidores', {
       id: {
@@ -8,6 +11,11 @@ module.exports = {
         autoIncrement: true,
         primaryKey: true,
         type: Sequelize.INTEGER
+      },
+      id_cliente:{
+        allowNull: true,
+        type: Sequelize.INTEGER,
+        references: { model: 'Clientes', key: 'id'}
       },
       nome_medidor: {
         type: Sequelize.STRING
@@ -28,7 +36,9 @@ module.exports = {
       }
     });
   },
+
   async down(queryInterface, Sequelize) {
     await queryInterface.dropTable('Medidores');
   }
+  
 };

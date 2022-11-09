@@ -10,7 +10,12 @@ module.exports = (sequelize, DataTypes) => {
      * The `models/index` file will call this method automatically.
      */
     static associate(models) {
-      // define association here
+      Estados.belongsTo(models.Cidades, {
+        foreignKey: 'id_estado'
+      })
+      Estados.belongsTo(models.Clientes, {
+        foreignKey: 'estado_cliente'
+      })
     }
   }
   Estados.init({
@@ -18,6 +23,7 @@ module.exports = (sequelize, DataTypes) => {
     uf_estado: DataTypes.STRING
   }, {
     sequelize,
+    paranoid: true,
     modelName: 'Estados',
   });
   return Estados;
