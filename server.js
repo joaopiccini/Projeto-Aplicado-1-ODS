@@ -10,6 +10,6 @@ app.listen(port, ()=>{
 });
 
 app.get('/', (req, res)=> {
-    console.log('Requisição recebida');
+    console.log.bind('Requisição recebida');
     return res.sendFile('./public/index.html');
 });

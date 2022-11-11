@@ -22,7 +22,7 @@ async function extrairTexto(img){
   const { data: { text } } = await worker.recognize(img);
   saidaTexto.value = text;
   await worker.terminate();
-  inserirNoBanco(text);
+  await MedicoesController.gravarMedicao(text);
 }
 
 btnAdcImage.addEventListener('click' , function(){
@@ -30,17 +30,16 @@ btnAdcImage.addEventListener('click' , function(){
 })
 
 inputImage.addEventListener('change' , function(){
-    let fileImage = inputImage.files[0];
+  let fileImage = inputImage.files[0];
 
-    imagePreview.src = URL.createObjectURL(fileImage);
+  imagePreview.src = URL.createObjectURL(fileImage);
 
-    try{
-      extrairTexto(fileImage);
+  try{
+    extrairTexto(fileImage);
+  }catch(e){
+    console.log('erro' , e);
+  }
 
-    }catch(e){
-        console.log('erro' , e);
-    }
-
-;})
+})
 
 module.exports = { extrairTexto }
