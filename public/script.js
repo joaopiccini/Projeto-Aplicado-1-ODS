@@ -22,7 +22,7 @@ async function extrairTexto(img){
   const { data: { text } } = await worker.recognize(img);
   saidaTexto.value = text;
   await worker.terminate();
-  await MedicoesController.gravarMedicao(text);
+  fetch('http://localhost:3000/medicoes', {method: 'GET'})
 }
 
 btnAdcImage.addEventListener('click' , function(){
