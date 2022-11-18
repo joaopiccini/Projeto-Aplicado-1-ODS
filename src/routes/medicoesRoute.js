@@ -4,6 +4,6 @@ const MedicoesController = require('../controllers/MedicoesController.js')
 const router = Router()
 
 router
-    .get('/medicoes', MedicoesController.gravarMedicao)
+    .post('/medicoes', MedicoesController.gravarMedicao)
 
 module.exports = router

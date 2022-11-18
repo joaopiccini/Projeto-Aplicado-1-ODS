@@ -15,6 +15,7 @@ class Services {
     }
 
     async criarRegistro(dados, t = {}){
+        console.log(dados)
         return await database[this.model].create(dados, t)
     }
 
