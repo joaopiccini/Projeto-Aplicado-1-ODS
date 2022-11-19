@@ -13,7 +13,7 @@ module.exports = {
         type: Sequelize.INTEGER
       },
       id_medidor:{
-        allowNull: false,
+        allowNull: true,
         type: Sequelize.INTEGER,
         references: { model: 'Medidores', key: 'id'}
       },
@@ -21,7 +21,10 @@ module.exports = {
         type: Sequelize.DATEONLY
       },
       valor_medicoes: {
-        type: Sequelize.INTEGER
+        type: Sequelize.INTEGER,
+        validate: {
+          isInt: true
+      }
       },
       createdAt: {
         allowNull: false,

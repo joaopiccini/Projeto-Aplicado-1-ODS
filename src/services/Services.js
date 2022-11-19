@@ -14,9 +14,9 @@ class Services {
         return await database[this.model].findOne({where: {id: id}})
     }
 
-    async criarRegistro(dados, t = {}){
-        console.log(dados)
-        return await database[this.model].create(dados, t)
+    async criarRegistro(dadosColetados, t = {}){
+        console.log(dadosColetados)
+        return await database[this.model].create(dadosColetados, t)
     }
 
     async atualizarRegistro(dadosAtualizados, id, t = {}){
