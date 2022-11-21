@@ -17,7 +17,7 @@ module.exports = (sequelize, DataTypes) => {
   }
   Medicoes.init({
     data_medicoes: DataTypes.DATEONLY,
-    valor_medicoes: DataTypes.FLOAT
+    valor_medicoes: DataTypes.INTEGER
   }, {
     sequelize,
     paranoid: true,
