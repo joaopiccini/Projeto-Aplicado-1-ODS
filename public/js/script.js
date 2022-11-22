@@ -26,12 +26,12 @@ async function extrairTexto(img){
   saidaTexto.value = text
   await worker.terminate()
 
-  const textReq = text.replace("\n", " ")
+  const textReq = text.replace("\n", "")
+
 
   var objReq = {
-    id_medidor: parseInt(2),
-    data_medicao: "2022-12-25",
-    valor_medicao: parseInt(textReq)
+    "data_medicoes": "2022-11-22",
+    "valor_medicoes": `${textReq}`
   }
 
   fetch('http://localhost:3000/medicoes', {

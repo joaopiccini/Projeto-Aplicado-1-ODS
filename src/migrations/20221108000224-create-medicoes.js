@@ -18,7 +18,7 @@ module.exports = {
         references: { model: 'Medidores', key: 'id'}
       },
       data_medicoes: {
-        type: Sequelize.DATEONLY
+        type: Sequelize.DATE
       },
       valor_medicoes: {
         type: Sequelize.INTEGER,

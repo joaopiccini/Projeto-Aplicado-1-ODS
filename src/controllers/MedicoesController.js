@@ -14,6 +14,18 @@ class MedicoesController {
         }
     }
 
+    static async atualizarMedicao(req, res){
+        const dadosColetados = req.body;
+        const id = req.params.id;
+        try{
+            await medicoesServices.atualizarRegistro(dadosColetados, id)
+            return res.status(200).json(dadosColetados)
+        } catch(err){
+            console.error(err)
+            return res.status(500).json(err.message)
+        }
+    }
+
 }
 
 module.exports = MedicoesController

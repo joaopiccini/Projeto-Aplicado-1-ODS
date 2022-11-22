@@ -16,7 +16,7 @@ module.exports = (sequelize, DataTypes) => {
     }
   }
   Medicoes.init({
-    data_medicoes: DataTypes.DATEONLY,
+    data_medicoes: DataTypes.DATE,
     valor_medicoes: DataTypes.INTEGER
   }, {
     sequelize,
