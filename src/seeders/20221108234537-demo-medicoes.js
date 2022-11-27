@@ -11,29 +11,36 @@ module.exports = {
     await queryInterface.bulkInsert('Medicoes', [
       {
         id_medidor: 1,
-        data_medicoes: new Date(),
-        valor_medicoes: 394812,
+        data_medicoes: '2022-11-20',
+        valor_medicoes: 102,
 				createdAt: new Date(),
 				updatedAt: new Date()
       },
       {
         id_medidor: 1,
-        data_medicoes: new Date(),
-        valor_medicoes: 394955,
+        data_medicoes: '2022-11-21',
+        valor_medicoes: 95,
 				createdAt: new Date(),
 				updatedAt: new Date()
       },
       {
         id_medidor: 1,
-        data_medicoes: new Date(),
-        valor_medicoes: 395174,
+        data_medicoes: '2022-11-22',
+        valor_medicoes: 121,
 				createdAt: new Date(),
 				updatedAt: new Date()
       },
       {
         id_medidor: 1,
-        data_medicoes: new Date(),
-        valor_medicoes: 395298,
+        data_medicoes: '2022-11-23',
+        valor_medicoes: 101,
+				createdAt: new Date(),
+				updatedAt: new Date()
+      },
+      {
+        id_medidor: 1,
+        data_medicoes: '2022-11-24',
+        valor_medicoes: 105,
 				createdAt: new Date(),
 				updatedAt: new Date()
       },

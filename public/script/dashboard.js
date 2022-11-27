@@ -1,99 +1,95 @@
-$('document').ready(function() {
+$(document).ready(function() {
 
   $.ajax({
     type: "POST",
-    url: "dashboard.php",
+    url: "http://localhost:80/script/dashboard.php",
     dataType: "json",
-    function(data){
-
-      let nomearray = [];
-      let vendasarray = [];
-
+    success: function(data){
       for (let i = 0; i < data.length; i++) {
-          nomearray.push(data[i].nome);
-          vendasarray.push(data[i].vendas);
+        dataArray.push(data[i].data_medicoes);
+        valoresArray.push(data[i].valor_medicoes);
       }
-
-      popularDashboard(nomearray, vendasarray);
-
     }
   })
 
 })
 
-function popularDashboard(nome, vendas) {
+var dataArray = [];
+var valoresArray = [];
+var valoresTotal = 0;
+// for(let i = 0; valores.length; i++){
+//   valoresTotal += valores[i];
+// }
 
-  new Chart(document.getElementById('metaDeConsumo'), {
-    type: 'bar',
-    data: {
-      labels: ['Consumo máximo', 'Consumo atual'],
-      datasets: [{
-        label: 'Meta de consumo',
-        backgroundColor: ['rgb(151, 215, 232)', 'rgb(16, 137, 184)'],
-        borderColor: ['rgb(151, 215, 232)', 'rgb(16, 137, 184)'],
-        fill: true,
-        tension	: 0.4,
-        data: [3000, 1284],
-        borderWidth: 1,
-      }]
+new Chart(document.getElementById('metaDeConsumo'), {
+  type: 'bar',
+  data: {
+    labels: ['Consumo máximo', 'Meta de consumo', 'Consumo atual'],
+    datasets: [{
+      label: 'Meta de consumo',
+      backgroundColor: ['rgb(151, 215, 232)', 'rgb(16, 137, 184)'],
+      borderColor: ['rgb(151, 215, 232)', 'rgb(16, 137, 184)'],
+      fill: true,
+      tension	: 0.4,
+      data: [3000, 2500, valoresTotal],
+      borderWidth: 1,
+    }]
+  },
+  options: {
+    indexAxis: 'y',
+    scales: {
+      y: {
+      beginAtZero: true
+      }
     },
-    options: {
-      indexAxis: 'y',
-      scales: {
-        y: {
-        beginAtZero: true
-        }
-      },
-      duration: 3000,
-    }
-  });
+    duration: 3000,
+  }
+});
 
-  new Chart(document.getElementById('consumoPorDia'), {
-    type: 'line',
-    data: {
-      labels: ['13-10-2022', '14-10-2022', '15-10-2022', '16-10-2022', '17-10-2022', '18-10-2022', '19-10-2022'],
-      datasets: [{
-        label: 'Litros consumidos por dia',
-        backgroundColor: 'rgb(16, 137, 184)',
-        borderColor: 'rgb(16, 137, 184)',
-        fill: true,
-        tension	: 0.4,
-        data: [110, 114, 99, 105, 112, 150, 117],
-        borderWidth: 1
-      }]
+new Chart(document.getElementById('consumoPorDia'), {
+  type: 'line',
+  data: {
+    labels: ['2022-01-20', '2022-03-12'],
+    datasets: [{
+      label: 'Litros consumidos por dia',
+      backgroundColor: 'rgb(16, 137, 184)',
+      borderColor: 'rgb(16, 137, 184)',
+      fill: true,
+      tension	: 0.4,
+      data: [100, 114],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+      beginAtZero: true
+      }
     },
-    options: {
-      scales: {
-        y: {
-        beginAtZero: true
-        }
-      },
-      duration: 3000,
-    }
-  });
+    duration: 3000,
+  }
+});
 
-  new Chart(document.getElementById('consumoPorMes'), {
-    type: 'line',
-    data: {
-      labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'MAio', 'Junho'],
-      datasets: [{
-        label: 'Litros consumidos por mês',
-        backgroundColor: 'rgb(151, 215, 232)',
-        borderColor: 'rgb(151, 215, 232)',
-        fill: true,
-        tension	: 0.4,
-        data: [3127, 2800, 3090, 2997, 2670, 2946, 3015],
-        borderWidth: 1
-      }]
+new Chart(document.getElementById('consumoPorMes'), {
+  type: 'line',
+  data: {
+    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'MAio', 'Junho'],
+    datasets: [{
+      label: 'Litros consumidos por mês',
+      backgroundColor: 'rgb(151, 215, 232)',
+      borderColor: 'rgb(151, 215, 232)',
+      fill: true,
+      tension	: 0.4,
+      data: [3127, 2800, 3090, 2997, 2670, 2946, 3015],
+      borderWidth: 1
+    }]
+  },
+  options: {
+    scales: {
+      y: {
+      beginAtZero: true
+      }
     },
-    options: {
-      scales: {
-        y: {
-        beginAtZero: true
-        }
-      },
-      duration: 3000,
-    }
-  });
-
-}
+    duration: 3000,
+  }
+});
