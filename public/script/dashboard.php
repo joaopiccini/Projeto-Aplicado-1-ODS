@@ -4,8 +4,10 @@ $pdo = new PDO('mysql:host=localhost;dbname=aguaonline;port=3306;charset=utf8', 
 
 $sql = "SELECT data_medicoes, valor_medicoes FROM Medicoes;";
 
+set_time_limit(500);
 $statement = $pdo->prepare($sql);
 $statement->execute();
+
 while($results = $statement->fetch(PDO::FETCH_ASSOC)) {
     $result[] = $results;
 }

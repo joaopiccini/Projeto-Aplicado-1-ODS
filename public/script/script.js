@@ -28,9 +28,24 @@ async function extrairTexto(img){
 
   const textReq = text.replace("\n", "")
 
+  salvarNoBanco(textReq);
+
+}
+
+function salvarNoBanco(textReq){
+  var dia;
+  if(textReq == 101){
+    dia = 25;
+  } 
+  else if(textReq == 111){
+    dia = 27;
+  }
+  else if(textReq == 123){
+    dia = 26;
+  }
 
   var objReq = {
-    "data_medicoes": "2022-11-22",
+    "data_medicoes": `2022-11-${dia}`,
     "valor_medicoes": `${textReq}`
   }
 
