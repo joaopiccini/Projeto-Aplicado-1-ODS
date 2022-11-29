@@ -2,7 +2,7 @@ $(document).ready(function() {
 
   $.ajax({
     type: "POST",
-    url: "http://localhost:80/script/dashboard.php",
+    url: "http://localhost:3000/script/dashboard.php",
     dataType: "json",
     success: function(data){
       for (let i = 0; i < data.length; i++) {
@@ -16,10 +16,10 @@ $(document).ready(function() {
 
 var dataArray = [];
 var valoresArray = [];
-var valoresTotal = 0;
-// for(let i = 0; valores.length; i++){
-//   valoresTotal += valores[i];
-// }
+for(let i = 0; valoresArray.length; i++){
+  var valoresTotal;
+  valoresTotal += valoresArray[i];
+}
 
 new Chart(document.getElementById('metaDeConsumo'), {
   type: 'bar',
@@ -49,14 +49,14 @@ new Chart(document.getElementById('metaDeConsumo'), {
 new Chart(document.getElementById('consumoPorDia'), {
   type: 'line',
   data: {
-    labels: ['2022-01-20', '2022-03-12'],
+    labels: dataArray,
     datasets: [{
       label: 'Litros consumidos por dia',
       backgroundColor: 'rgb(16, 137, 184)',
       borderColor: 'rgb(16, 137, 184)',
       fill: true,
       tension	: 0.4,
-      data: [100, 114],
+      data: valoresArray,
       borderWidth: 1
     }]
   },
@@ -73,7 +73,7 @@ new Chart(document.getElementById('consumoPorDia'), {
 new Chart(document.getElementById('consumoPorMes'), {
   type: 'line',
   data: {
-    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'MAio', 'Junho'],
+    labels: ['Janeiro', 'Fevereiro', 'Março', 'Abril', 'Maio', 'Junho'],
     datasets: [{
       label: 'Litros consumidos por mês',
       backgroundColor: 'rgb(151, 215, 232)',

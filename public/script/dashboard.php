@@ -1,8 +1,8 @@
 <?php
 
-$pdo = new PDO('mysql:host=localhost;dbname=aguaonline;port=3306;charset=utf8', 'root', 'mysql');
+$pdo = new PDO('mysql:host=localhost;dbname=aguaonline;port=3306;charset=utf8', 'mysql', 'mysql');
 
-$sql = "SELECT data_medicoes, valor_medicoes FROM Medicoes;"
+$sql = "SELECT data_medicoes, valor_medicoes FROM Medicoes;";
 
 $statement = $pdo->prepare($sql);
 $statement->execute();
