@@ -5,33 +5,35 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Agua Online</title>
-    <link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/dashboard.css">
 </head>
 <body>
     <header>
         <div class="caixa">
             <h1><img src="./arquivos/gota.png"></h1>
-            <nav>
-                <ul>
-                    <li><a href="./index.html"> Registar medida</a></li>
-                    <li><a href="./dashboard.html">Dashboard</a></li>
-                </ul>
-            </nav>
         </div>
     </header>
     <main>
-        <div class="caixa-main">
-            <input type="file" class="input-image">
-            <button class="btnAdcImagens">Inserir Imagem</button>
-            <textarea class="output-text" disabled></textarea>
-            <img src="" alt="" class="preview">
-            <div class="barraProgresso"></div>
+        <div class="container">
+            <div class="container-bar">
+                <canvas id="metaDeConsumo"></canvas>
+            </div>
+            <div class="container-line1">
+                <canvas id="consumoPorDia"></canvas>
+            </div>
+            <div class="container-line2">
+                <canvas id="consumoPorMes"></canvas>
+            </div>
+            <div class="container-doughnut">
+                <canvas id="statusMedidores"></canvas>
+            </div>
         </div>
     </main>
     <footer>
         <p class="copyright">&copy; Copyright Agua Online - 2022</p>
     </footer>
-    <script src='https://unpkg.com/tesseract.js@v2.1.0/dist/tesseract.min.js'></script>
-    <script src="./script/script.js"></script>
+    <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.4.1.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="./script/dashboard.js"></script>
 </body>
 </html>
