@@ -9,6 +9,7 @@
 header{
     background: #D5E8E7;
     padding: 20px 0;
+    height: 40vh;
 }
 
 .caixa{
@@ -39,7 +40,7 @@ nav a{
     transition: 0.5s all;
 }
 
-nav a:active{
+nav a:hover{
     color: #15588D;
     text-decoration: underline;
 }
@@ -47,12 +48,14 @@ nav a:active{
 /* Corpo */
 
 main{
-    background: linear-gradient(#D5E8E7, #6A9AA7);
+    background: #D5E8E7;
+    height: 50vh;
 }
 
 .caixa-main{
     margin: 0 auto 0 auto;
     width: 350px;
+    
 }
 
 .input-image{
@@ -70,7 +73,7 @@ main{
 }
 
 .btnAdcImagens{
-    margin: 0 0 0 15px;
+    margin: 10px 0 0 15px;
     width: 90%;
     padding: 10px 0;
     background: #1089B8;
@@ -83,9 +86,9 @@ main{
     cursor: pointer;
 }
 
-.btnAdcImagens:active{
+.btnAdcImagens:hover{
     background: #1089B8;
-    transform: scale(1.1);
+    transform: scale(1.01);
 }
 
 .preview{
@@ -105,12 +108,12 @@ main{
 
 footer{
     text-align: center;
-    background: #6A9AA7;
-    padding: 50px 0 40px;
+    background: #D5E8E7;
+    height: 10vh;
 }
 
 .copyright{
     color: #000000;
     font-size: 13px;
-    margin-top: 20px;
+    padding: 50px 0 10px 0;
 }

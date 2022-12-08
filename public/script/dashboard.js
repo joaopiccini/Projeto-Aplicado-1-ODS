@@ -14,7 +14,7 @@ $(document).ready(function() {
         valoresArray.push(data[i].valor_medicoes);
       }
       for(let i = 0; i < valoresArray.length; i++){
-        valoresTotal += valoresArray[i];
+        valoresTotal += (Number)(valoresArray[i]);
       }
       iniciarCharts(dataArray, valoresArray, valoresTotal);
     }
@@ -102,7 +102,7 @@ function iniciarCharts(dataArray, valoresArray, valoresTotal){
     data: {
       labels: ['Ativo', 'Reparo', 'Inativo'],
       datasets: [{
-        label: 'Litros consumidos por mês',
+        label: 'Status dos medidores',
         backgroundColor: ['rgb(33, 196, 69)', 'rgb(255, 230, 0)', 'rgb(255, 3, 3)'],
         borderColor: ['rgb(33, 196, 69)', 'rgb(255, 230, 0)', 'rgb(255, 3, 3)'],
         fill: true,

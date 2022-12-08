@@ -47,7 +47,7 @@ nav a:hover{
 /* Corpo */
 
 main{
-    background: linear-gradient(#D5E8E7, #6A9AA7);
+    background: #D5E8E7;
 }
 
 .caixa-main{
@@ -97,12 +97,11 @@ canvas{
 
 footer{
     text-align: center;
-    background: #6A9AA7;
-    padding: 50px 0 40px;
+    background: #D5E8E7;
 }
 
 .copyright{
     color: #000000;
     font-size: 13px;
-    margin-top: 20px;
+    padding: 30px 0 10px 0;
 }
