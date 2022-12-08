@@ -49,7 +49,7 @@ function salvarNoBanco(textReq){
     "valor_medicoes": `${textReq}`
   }
 
-  fetch('http://localhost:3000/medicoes', {
+  fetch('http://164.92.96.22:3000/medicoes', {
       method: "POST",
       body: JSON.stringify(objReq),
       headers: {"Content-type": "application/json; charset=UTF-8"}

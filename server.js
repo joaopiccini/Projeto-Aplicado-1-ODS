@@ -11,5 +11,5 @@ app.use(express.static('public'))
 app.use(sphp.express('public'))
 
 app.listen(port, ()=>{
-    console.log(`Servidor escutando em http://localhost:${port}`)
+    console.log(`Servidor escutando em http://164.92.96.22:${port}`)
 })

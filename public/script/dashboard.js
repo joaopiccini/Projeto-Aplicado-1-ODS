@@ -6,7 +6,7 @@ $(document).ready(function() {
 
   $.ajax({
     type: "POST",
-    url: "http://localhost:3000/script/dashboard.php",
+    url: "http://164.92.96.22:3000/script/dashboard.php",
     dataType: "json",
     success: function(data){
       for (let i = 0; i < data.length; i++) {
