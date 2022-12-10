@@ -1,7 +1,13 @@
+@font-face {
+    font-family: 'icones';
+    src: url(../font/icones.ttf);
+}
+
 *{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    font-family: 'Open Sans', 'icones', sans-serif;
 }
 
 /* Cabeçalho */
@@ -21,13 +27,21 @@ h1 img{
     width: 70%;
 }
 
-nav{
-    margin-bottom: 40px;
+/* Menu */
+
+.faixa-cabecalho{
+    height: 50px;
+    width: 100vw;
+    background-color: #abd6d6;
 }
 
-nav li{
-    display: block;
-    margin: 20px 0 0 0;
+.cabecalho__menu i::before{
+    content: "\e9bd";
+    color: #15588D;
+    font-size: 24px;
+    position: absolute;
+    left: 23px;
+    top: 10px;
 }
 
 nav a{
@@ -39,9 +53,70 @@ nav a{
     transition: 0.5s all;
 }
 
-nav a:hover{
+.menu-lateral{
+    display: flex;
+    flex-direction: column;
+    background-color: #abd6d6;
+    width: 60vw;
+    height: 100vh;
+
+    position: absolute;
+    left: -100vw;
+    transition: .75s;
+    z-index: 1;
+}
+
+.menu-lateral--ativo{
+    left: 0;
+    transition: .75s;
+}
+
+.menu-lateral__link{
+    height: 80px;
     color: #15588D;
-    text-decoration: underline;
+    padding-left: 64px;
+    display: flex;
+    align-items: center;
+    font-size: 16px;
+}
+
+.menu-lateral__link--ativo:active{
+    color: #15588D;
+    padding-left: 56px;
+    border-left: 8px solid #15588D;
+}
+
+.menu-lateral__link::before{
+    content: "";
+    width: 24px;
+    height: 24px;
+    font-size: 24px;
+    position: absolute;
+    left: 24px;
+}
+
+.menu-lateral__link--inicio::before{
+    content: "\e900";
+}
+
+.menu-lateral__link--dashboard::before{
+    content: "\e9a6";
+}
+
+.menu-lateral__link--faturas::before{
+    content: "\e937";
+}
+
+.menu-lateral__link--previsoes::before{
+    content: "\e985";
+}
+
+.menu-lateral__link--suporte::before{
+    content: "\e910";
+}
+
+.menu-lateral__link--sair::before{
+    content: "\ea14";
 }
 
 /* Corpo */
